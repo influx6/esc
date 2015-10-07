@@ -57,6 +57,11 @@ func main() {
 		for len(files) > 0 {
 			fname := files[0]
 			files = files[1:]
+			
+			if strings.Index(fname,".git") != -1 {
+				continue
+			}
+			
 			if ignoreRegexp != nil && ignoreRegexp.MatchString(fname) {
 				continue
 			}
